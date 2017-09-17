@@ -12,7 +12,7 @@ namespace MovieServer.Controllers
         public ActionResult Detail()
         {
             var movieDetails = new Movie() {
-                MovieTitle = "The Amazing Spider-Main",
+                MovieTitle = "The Amazing Spider-Man",
                 MovieRating = 45,
                 DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
                 Actors = new Actor[]
