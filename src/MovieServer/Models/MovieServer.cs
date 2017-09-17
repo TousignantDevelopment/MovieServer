@@ -13,5 +13,21 @@ namespace MovieServer.Models
         public string DescriptionHtml { get; set; }
         public Actors[] Actors { get; set; }
         public bool Favorite { get; set; }
+
+        public string DisplayText
+        {
+            get
+            {
+                return MovieTitle + " - " + MovieRating;
+            }
+        }
+        public string CoverImageFileName
+        {
+            get
+            {
+                return MovieTitle.Replace(" ", "-").ToLower() +
+                       "-" + MovieRating + ".jpg";
+            }
+        }
     }
 }
