@@ -1,5 +1,18 @@
 ﻿@{
+
     Layout = null;
+
+    var seriesTitle = "The Amazing Spider-Main";
+    var releaseDate = "December, 20, 2012";
+    var description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>";
+    var actors = new string[]
+        {
+            "Script: Dan Slott",
+            "Pencils: Humberto Ramos",
+            "Inks: Victor Olazaba",
+            "Colors: Edgar Delgado",
+            "Letters: Chris Eliopoulos"
+        };
 }
 
 <!DOCTYPE html>
@@ -11,7 +24,24 @@
 </head>
 <body>
     <div>
-        Movie Server
+        <h1>@seriesTitle</h1>
+        <h2>Year Released: @releaseDate</h2>
+
+        <h5>Description:</h5>
+        <div>@Html.Raw(description)</div>
+
+        @if(actors.Length > 0)
+        {
+            <h5>Actors/Actresses</h5>
+            <div>
+                <ul>
+                    @foreach (var actor in actors)
+                    {
+                        <li>@actor</li>
+                    }
+                </ul>
+            </div>
+        }
     </div>
 </body>
 </html>
