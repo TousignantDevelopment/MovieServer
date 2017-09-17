@@ -1,35 +1,26 @@
 ﻿@{
 
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Tousignant Movie Server";
 }
 
-<!DOCTYPE html>
+<div>
+    <h1>@ViewBag.SeriesTitle</h1>
+    <h2>Year Released: @ViewBag.ReleaseDate</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-        <h1>@ViewBag.SeriesTitle</h1>
-        <h2>Year Released: @ViewBag.ReleaseDate</h2>
+    <h5>Description:</h5>
+    <div>@Html.Raw(ViewBag.Description)</div>
 
-        <h5>Description:</h5>
-        <div>@Html.Raw(ViewBag.Description)</div>
-
-        @if(ViewBag.Actors.Length > 0)
-        {
-            <h5>Actors/Actresses</h5>
-            <div>
-                <ul>
-                    @foreach (var actor in ViewBag.Actors)
-                    {
-                        <li>@actor</li>
-                    }
-                </ul>
-            </div>
-        }
-    </div>
-</body>
-</html>
+    @if(ViewBag.Actors.Length > 0)
+    {
+        <h5>Actors/Actresses</h5>
+        <div>
+            <ul>
+                @foreach (var actor in ViewBag.Actors)
+                {
+                    <li>@actor</li>
+                }
+            </ul>
+        </div>
+    }
+</div>
