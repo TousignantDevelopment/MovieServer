@@ -8,6 +8,10 @@ namespace MovieServer.Controllers
 {
     public class MovieServerController : Controller
     {
-
+        public ActionResult Detail()
+        {
+            return View();
+            
+        }
     }
 }
