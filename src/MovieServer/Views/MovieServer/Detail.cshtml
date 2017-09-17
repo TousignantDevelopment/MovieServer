@@ -1,24 +1,26 @@
-﻿@{
+﻿@model MovieServer.Models.Movie
+
+@{
 
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Tousignant Movie Server";
+    ViewBag.Title = Model.DisplayText;
 }
 
 <div>
-    <h1>@ViewBag.SeriesTitle</h1>
-    <h2>Year Released: @ViewBag.ReleaseDate</h2>
+    <h1>@Model.MovieTitle</h1>
+    <h2>Movie Rating: @Model.MovieRating</h2>
 
     <h5>Description:</h5>
-    <div>@Html.Raw(ViewBag.Description)</div>
+    <div>@Html.Raw(Model.DescriptionHtml)</div>
 
-    @if(ViewBag.Actors.Length > 0)
+    @if(Model.Actors.Length > 0)
     {
         <h5>Actors/Actresses</h5>
         <div>
             <ul>
-                @foreach (var actor in ViewBag.Actors)
+                @foreach (var actor in Model.Actors)
                 {
-                    <li>@actor</li>
+                    <li>@actor.Character: @actor.Name</li>
                 }
             </ul>
         </div>

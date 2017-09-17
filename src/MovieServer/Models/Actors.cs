@@ -5,9 +5,9 @@ using System.Web;
 
 namespace MovieServer.Models
 {
-    public class Actors
+    public class Actor
     {
         public string Name { get; set; }
-        public string Role { get; set; }
+        public string Character { get; set; }
     }
 }

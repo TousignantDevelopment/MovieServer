@@ -5,20 +5,20 @@ using System.Web;
 
 namespace MovieServer.Models
 {
-    public class MovieServer
+    public class Movie
     {
         public int Id { get; set; }
         public string MovieTitle { get; set; }
         public int MovieRating { get; set; }
         public string DescriptionHtml { get; set; }
-        public Actors[] Actors { get; set; }
+        public Actor[] Actors { get; set; }
         public bool Favorite { get; set; }
 
         public string DisplayText
         {
             get
             {
-                return MovieTitle + " - " + MovieRating;
+                return MovieTitle + " - {" + MovieRating + "}";
             }
         }
         public string CoverImageFileName

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieServer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,19 +11,23 @@ namespace MovieServer.Controllers
     {
         public ActionResult Detail()
         {
-            ViewBag.SeriesTitle = "The Amazing Spider-Main";
-            ViewBag.ReleaseDate = "December, 20, 2012";
-            ViewBag.Description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>";
-            ViewBag.Actors = new string[]
+            var movieDetails = new Movie() {
+                MovieTitle = "The Amazing Spider-Main",
+                MovieRating = 45,
+                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
+                Actors = new Actor[]
                 {
-                    "Script: Dan Slott",
-                    "Pencils: Humberto Ramos",
-                    "Inks: Victor Olazaba",
-                    "Colors: Edgar Delgado",
-                    "Letters: Chris Eliopoulos"
-                };
+                    new Actor() { Name = "Dan Slott", Character = "Script" },
+                    new Actor() { Name = "Humberto Ramos", Character = "Pencils" },
+                    new Actor() { Name = "Victor Olazaba", Character = "Inks" },
+                    new Actor() { Name = "Edgar Delgado", Character = "Colors" },
+                    new Actor() { Name = "Chris Eliopoulos", Character = "Letters" },
 
-            return View();
+
+                }
+            };
+
+            return View(movieDetails);
             
         }
     }
