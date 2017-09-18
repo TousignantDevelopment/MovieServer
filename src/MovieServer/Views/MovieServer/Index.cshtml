@@ -10,10 +10,13 @@
     <div class="col-md-3">
         @foreach (var movie in Model)
         {
-            <h4>@movie.DisplayText</h4>
+            <h4>@Html.ActionLink(movie.DisplayText, "Detail", "MovieServer",
+               new { id = movie.Id }, new { })</h4>
+            <a href="@Url.Action("Detail", "MovieServer" ,new { id = movie.Id })">
             <img src="~/Images/@movie.CoverImageFileName"
                  alt="@movie.DisplayText"
                  class="img-responsive" />
+            </a>
         }
     </div>
 </div>
