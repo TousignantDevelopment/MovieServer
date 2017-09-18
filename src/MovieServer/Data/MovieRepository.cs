@@ -75,5 +75,10 @@ namespace MovieServer.Data
 
             return movieToReturn;
         }
+
+        public Movie[] GetMovies()
+        {
+            return _movies;
+        }
     }
 }
