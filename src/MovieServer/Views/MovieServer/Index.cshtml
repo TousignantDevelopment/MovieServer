@@ -1,7 +1,19 @@
-﻿
+﻿@model MovieServer.Models.Movie[]
+
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movies";
 }
 
-<h2>Index</h2>
-
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-3">
+        @foreach (var movie in Model)
+        {
+            <h4>@movie.DisplayText</h4>
+            <img src="~/Images/@movie.CoverImageFileName"
+                 alt="@movie.DisplayText"
+                 class="img-responsive" />
+        }
+    </div>
+</div>
