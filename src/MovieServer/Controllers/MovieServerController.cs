@@ -1,4 +1,5 @@
-﻿using MovieServer.Models;
+﻿using MovieServer.Data;
+using MovieServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +10,21 @@ namespace MovieServer.Controllers
 {
     public class MovieServerController : Controller
     {
-        public ActionResult Detail()
+        private MovieRepository _movieRepository = null;
+
+        public MovieServerController()
         {
-            var movieDetails = new Movie() {
-                MovieTitle = "The Amazing Spider-Man",
-                MovieRating = 45,
-                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
-                Actors = new Actor[]
-                {
-                    new Actor() { Name = "Dan Slott", Character = "Script" },
-                    new Actor() { Name = "Humberto Ramos", Character = "Pencils" },
-                    new Actor() { Name = "Victor Olazaba", Character = "Inks" },
-                    new Actor() { Name = "Edgar Delgado", Character = "Colors" },
-                    new Actor() { Name = "Chris Eliopoulos", Character = "Letters" },
+            _movieRepository = new MovieRepository();
+        }
 
+        public ActionResult Detail(int? id)
+        {
+            if(id == null)
+            {
+                return HttpNotFound();
+            }
 
-                }
-            };
+            var movieDetails = _movieRepository.GetMovie((int)id);
 
             return View(movieDetails);
             
